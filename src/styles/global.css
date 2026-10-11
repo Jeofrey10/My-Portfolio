@@ -1,0 +1,339 @@
+/* ============================================
+   GLOBAL STYLES — JEOFREY M. PORTFOLIO
+   ============================================ */
+
+@import './tokens.css';
+@import '@fontsource-variable/archivo/wght.css';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource/martian-mono/400.css';
+@import '@fontsource/martian-mono/300.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Instrument Sans Variable', system-ui, sans-serif;
+  font-size: var(--t-body);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+/* ── Skip to content ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--ink-black);
+  color: var(--paper);
+  font-family: 'Martian Mono', ui-monospace, monospace;
+  font-size: var(--t-label);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ── Display type ── */
+.font-display {
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.font-mono {
+  font-family: 'Martian Mono', ui-monospace, monospace;
+}
+
+/* ── Type treatments ── */
+.t-mega {
+  font-size: var(--t-mega);
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+
+.t-display {
+  font-size: var(--t-display);
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+
+.t-h1 {
+  font-size: var(--t-h1);
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.t-h2 {
+  font-size: var(--t-h2);
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.t-lead {
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.t-label {
+  font-family: 'Martian Mono', ui-monospace, monospace;
+  font-size: var(--t-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.t-micro {
+  font-family: 'Martian Mono', ui-monospace, monospace;
+  font-size: var(--t-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ── Emboss / Deboss treatments ── */
+.emboss {
+  color: var(--paper);
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.85),
+    0 -1px 0 rgba(23,23,23,0.35),
+    0 2px 3px rgba(23,23,23,0.10);
+}
+
+[data-theme="dark"] .emboss {
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.08),
+    0 -1px 0 rgba(0,0,0,0.6),
+    0 2px 3px rgba(0,0,0,0.25);
+}
+
+.deboss {
+  color: var(--silver);
+  text-shadow:
+    0 -1px 0 rgba(255,255,255,0.9),
+    0 1px 0 rgba(23,23,23,0.22);
+}
+
+[data-theme="dark"] .deboss {
+  color: var(--silver);
+  text-shadow:
+    0 -1px 0 rgba(255,255,255,0.04),
+    0 1px 0 rgba(0,0,0,0.5);
+}
+
+/* ── Etched rule ── */
+.etched-rule {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: 0 1px 0 var(--border-highlight);
+}
+
+/* ── Container ── */
+.container-site {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin-mobile);
+  padding-right: var(--margin-mobile);
+}
+
+@media (max-width: 400px) {
+  .container-site {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    padding-left: var(--margin-tablet);
+    padding-right: var(--margin-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-site {
+    padding-left: var(--margin-desktop);
+    padding-right: var(--margin-desktop);
+  }
+}
+
+/* ── Focus rings ── */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--silver-deep);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Brushed metal panel ── */
+.brushed-metal {
+  background-color: var(--silver);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(23,23,23,0.02) 1px,
+      rgba(23,23,23,0.02) 2px
+    );
+}
+
+[data-theme="dark"] .brushed-metal {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(255,255,255,0.02) 1px,
+      rgba(255,255,255,0.02) 2px
+    );
+}
+
+/* ── Grain overlay ── */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+}
+
+.grain-overlay.inverted {
+  mix-blend-mode: screen;
+  opacity: 0.05;
+}
+
+[data-theme="dark"] .grain-overlay {
+  mix-blend-mode: screen;
+  opacity: 0.04;
+}
+
+/* ── Body text measure ── */
+.measure {
+  max-width: 62ch;
+}
+
+/* ── Grid helper ── */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+@media (max-width: 1023px) {
+  .grid-12 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-12 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  :root {
+    --poster-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --poster-ratio: 4 / 5;
+  }
+}
+
+/* ── Responsive skill text ── */
+.t-h2-responsive {
+  font-size: clamp(1.25rem, 2.4vw, 2.25rem);
+  font-family: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Mobile-first compact helpers ── */
+@media (max-width: 767px) {
+  .mobile-stack {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-text-left {
+    text-align: left;
+  }
+
+  .mobile-p-compact {
+    padding: 20px 16px;
+  }
+}

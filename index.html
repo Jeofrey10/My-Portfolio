@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeofrey M. — Creative Developer · AI × Design × Product</title>
+    <meta name="description" content="Portfolio of Jeofrey M., a creative frontend developer and designer building voice-native, AI-driven and hardware products. B.E. CSE, Sethu Institute of Technology." />
+    <meta property="og:title" content="Jeofrey M. — Creative Developer" />
+    <meta property="og:description" content="Building digital products where technology meets visual thinking." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#F4F4F0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <script>
+      // Set theme before first paint to prevent flash
+      (function() {
+        var t = localStorage.getItem('jm-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
